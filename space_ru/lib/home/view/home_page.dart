@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:space_ru/authentication/bloc/authentication_bloc.dart';
+import 'package:space_ru/home/drawer/menu_bar.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -11,13 +12,9 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [_UserId(), _LogoutButton()],
-        ),
-      ),
+    return MaterialApp(
+      theme: ThemeData(useMaterial3: true),
+      home: const DrawerMenu(),
     );
   }
 }
