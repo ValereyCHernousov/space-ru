@@ -14,6 +14,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.1
+  google_fonts: ^6.2.1
   formz: ^0.6.0
   user_repository:
     path: packages/user_repository
@@ -24,5 +25,17 @@ dev_dependencies:
     sdk: flutter
   mocktail: ^1.0.0
 
+
+flutter_icons:
+  ios: true
+  android: "launcher_icon"
+  image_path_ios: "lib/assets/launcher/launch.png"
+  image_path_android: "lib/assets/launcher/launch.png"
+
 flutter:
   uses-material-design: true
+
+
+  assets:
+    - lib/assets/google.png
+    - lib/assets/launch.png

@@ -19,15 +19,20 @@ class LoginForm extends StatelessWidget {
         }
       },
       child: Align(
-        alignment: const Alignment(0, -1 / 3),
+        alignment: const Alignment(1000, -10 / 3),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
+            _showLogo(),
+            const Padding(padding: EdgeInsets.all(12)),
+            _showLogoText(),
+            const Padding(padding: EdgeInsets.all(12)),
             _UsernameInput(),
             const Padding(padding: EdgeInsets.all(12)),
             _PasswordInput(),
             const Padding(padding: EdgeInsets.all(12)),
             _LoginButton(),
+            const Padding(padding: EdgeInsets.all(12)),
           ],
         ),
       ),
@@ -44,15 +49,43 @@ class _UsernameInput extends StatelessWidget {
 
     return TextField(
       key: const Key('loginForm_usernameInput_textField'),
+      autofocus: true,
       onChanged: (username) {
         context.read<LoginBloc>().add(LoginUsernameChanged(username));
       },
       decoration: InputDecoration(
+        icon: Icon(
+          Icons.mail,
+          color: Colors.purple.shade300,
+        ),
         labelText: 'username',
         errorText: displayError != null ? 'invalid username' : null,
       ),
     );
   }
+}
+
+Widget _showLogo() {
+  return Hero(
+      tag: 'hero',
+      child: Padding(
+        padding: const EdgeInsets.only(top: 160.0),
+        child: Center(
+          child: Container(
+              width: 120,
+              height: 90,
+              child: Image.asset('lib/assets/launch.png')),
+        ),
+      ));
+}
+
+Widget _showLogoText() {
+  return Text(
+    overflow: TextOverflow.fade,
+    maxLines: 1,
+    style: TextStyle(color: Colors.grey.shade600, fontSize: 25),
+    'Sloggers',
+  );
 }
 
 class _PasswordInput extends StatelessWidget {
@@ -69,6 +102,10 @@ class _PasswordInput extends StatelessWidget {
       },
       obscureText: true,
       decoration: InputDecoration(
+        icon: Icon(
+          Icons.key,
+          color: Colors.purple.shade300,
+        ),
         labelText: 'password',
         errorText: displayError != null ? 'invalid password' : null,
       ),
@@ -88,11 +125,15 @@ class _LoginButton extends StatelessWidget {
     final isValid = context.select((LoginBloc bloc) => bloc.state.isValid);
 
     return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+          foregroundColor: Colors.black54,
+          backgroundColor: Colors.purple.shade50,
+          minimumSize: const Size(400, 48)),
       key: const Key('loginForm_continue_raisedButton'),
       onPressed: isValid
           ? () => context.read<LoginBloc>().add(const LoginSubmitted())
           : null,
-      child: const Text('Login'),
+      child: const Text('Войти'),
     );
   }
 }
