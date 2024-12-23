@@ -49,14 +49,13 @@ class _UsernameInput extends StatelessWidget {
 
     return TextField(
       key: const Key('loginForm_usernameInput_textField'),
-      autofocus: true,
       onChanged: (username) {
         context.read<LoginBloc>().add(LoginUsernameChanged(username));
       },
       decoration: InputDecoration(
         icon: Icon(
           Icons.mail,
-          color: Colors.purple.shade300,
+          color: Colors.teal.shade800,
         ),
         labelText: 'username',
         errorText: displayError != null ? 'invalid username' : null,
@@ -104,7 +103,7 @@ class _PasswordInput extends StatelessWidget {
       decoration: InputDecoration(
         icon: Icon(
           Icons.key,
-          color: Colors.purple.shade300,
+          color: Colors.teal.shade800,
         ),
         labelText: 'password',
         errorText: displayError != null ? 'invalid password' : null,
@@ -127,7 +126,7 @@ class _LoginButton extends StatelessWidget {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
           foregroundColor: Colors.black54,
-          backgroundColor: Colors.purple.shade50,
+          backgroundColor: Colors.teal.shade50,
           minimumSize: const Size(400, 48)),
       key: const Key('loginForm_continue_raisedButton'),
       onPressed: isValid

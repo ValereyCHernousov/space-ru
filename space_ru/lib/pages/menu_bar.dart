@@ -37,7 +37,6 @@ class _DrawerMenuState extends State<DrawerMenu> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Home"),
         leading: Builder(
           builder: (context) {
             return IconButton(
@@ -58,7 +57,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
           children: <Widget>[
             const UserAccountsDrawerHeader(
               // <-- SEE HERE
-              decoration: BoxDecoration(color: const Color(0xff764abc)),
+              decoration: BoxDecoration(color: Colors.grey),
               accountName: Text(
                 "Черноусов Валерий",
                 style: TextStyle(
