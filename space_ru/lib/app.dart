@@ -6,7 +6,7 @@ import 'package:space_ru/pages/login_page.dart';
 import 'package:user_repository/user_repository.dart';
 
 import 'blocs/authentication/authentication_bloc.dart';
-import 'pages/splash_page.dart';
+import 'widgets/splash_page.dart';
 
 class App extends StatefulWidget {
   const App({super.key});
